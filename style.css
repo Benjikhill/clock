@@ -3,3 +3,65 @@
   margin: 0px;
   padding: 0px;
 }
+html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gold;
+}
+.analogClock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px black;
+}
+.digitalClock {
+  margin-top: 1rem;
+  font-family: monospace;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.analogClock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: 10;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+.analogClock::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.analogClock .hand.second {
+  width: 3px;
+  height: 130px;
+  background-color: red;
+}
+.analogClock .hand.minute {
+  width: 7px;
+  height: 120px;
+  background-color: black;
+}
+.analogClock .hand.hour {
+  width: 10px;
+  height: 80px;
+  background-color: black;
+}
